@@ -6,20 +6,18 @@ class Solution(object):
         :rtype: int
         """
         zeroes = 0
-        lenght = 0
+        length = 0
         left = 0
 
         for right in range(len(nums)):
-            if(nums[right] == 0):
+            if nums[right] == 0:
                 zeroes += 1
 
-            if(zeroes > k):
-                if(nums[left] == 0):
+            while zeroes > k:
+                if nums[left] == 0:
                     zeroes -= 1
-                left +=1
+                left += 1
 
-            window = right - left + 1
+            length = max(length, right - left + 1)
 
-            lenght =  max(lenght , window)
-
-        return lenght
+        return length
