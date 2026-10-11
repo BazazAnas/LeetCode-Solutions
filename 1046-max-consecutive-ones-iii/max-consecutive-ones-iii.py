@@ -22,6 +22,4 @@ class Solution(object):
 
             lenght =  max(lenght , window)
 
-            right += 1
-
         return lenght
