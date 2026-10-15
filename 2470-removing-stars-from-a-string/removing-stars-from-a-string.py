@@ -9,7 +9,7 @@ class Solution(object):
         for ch in s:
             if(ch != '*'):
                 stack.append(ch)
-            elif(ch == '*'):
+            else:
                 stack.pop()
 
         return "".join(stack)
