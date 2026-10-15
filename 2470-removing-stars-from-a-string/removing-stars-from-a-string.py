@@ -12,6 +12,4 @@ class Solution(object):
             elif(ch == '*'):
                 stack.pop()
 
-        word = "".join(stack)
-
-        return word
+        return "".join(stack)
