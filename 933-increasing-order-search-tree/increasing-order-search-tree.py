@@ -10,8 +10,8 @@ class Solution(object):
         :type root: TreeNode
         :rtype: TreeNode
         """
-        dummy = TreeNode(0)
-        self.tail = dummy          
+        Result = TreeNode(0)
+        self.tail = Result          
 
         def inorder(node):
             if node is None:
@@ -25,4 +25,4 @@ class Solution(object):
             inorder(node.right)
 
         inorder(root)
-        return dummy.right
+        return Result.right
