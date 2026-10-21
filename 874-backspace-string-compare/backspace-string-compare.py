@@ -8,21 +8,19 @@ class Solution(object):
         stack1 = []
         stack2 = []
         for i in s:
-            if(i == '#'):
-                if(stack1):
-                    stack1.pop()
-            else:
+            if(i != '#'):
                 stack1.append(i)
+            elif(stack1):
+                stack1.pop() 
+            else:
+                continue
 
         for x in t:
-            if(x == '#'):
-                if(stack2):
-                    stack2.pop()
-            else:
+            if(x != '#'):
                 stack2.append(x)
-            
+            elif(stack2):
+                stack2.pop()
+            else:
+                continue
 
-        if(stack1 == stack2):
-            return True
-        else: 
-            return False
+        return stack1 == stack2
