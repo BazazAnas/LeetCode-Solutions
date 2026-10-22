@@ -11,14 +11,17 @@ class Solution(object):
         :type root2: Optional[TreeNode]
         :rtype: bool
         """
-        def lvs(root):
+        def lvs(root , leaves):
             if root is None:
-                return []
+                return
             if(not root.left and not root.right):
-                return [root.val]
-            return lvs(root.left) + lvs(root.right)
+                return leaves.append(root.val)
+            lvs(root.left,leaves)
+            lvs(root.right,leaves)
 
-        l1 = lvs(root1)
-        l2 = lvs(root2)
+        l1 = [] 
+        lvs(root1, l1)
+        l2 =[]
+        lvs(root2, l2)
 
         return l1 == l2    
