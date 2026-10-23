@@ -16,11 +16,8 @@ class Solution(object):
             good = 0
             if root.val >= maxPrev:
                 good = 1
-            
-            newMax = max(maxPrev,root.val)
-            good += checkGood(root.left,newMax)
-            good += checkGood(root.right,newMax)
+                maxPrev = root.val
 
-            return good
+            return good + checkGood(root.left, maxPrev) + checkGood(root.right, maxPrev)
         return  checkGood(root, float('-inf'))   
         
