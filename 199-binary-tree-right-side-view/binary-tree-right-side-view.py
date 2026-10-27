@@ -10,21 +10,19 @@ class Solution(object):
         :type root: Optional[TreeNode]
         :rtype: List[int]
         """
-        if not root:
-            return []
+        ans = []
 
-        result = []
-        queue = deque([root])
+        def dfs(node, depth):
+            if node is None:
+                return
 
-        while queue:
-            level = len(queue)
-            for i in range(level):
-                node = queue.popleft()
-                if i == level - 1:
-                    result.append(node.val)
-                if node.left:
-                    queue.append(node.left)
-                if node.right:
-                    queue.append(node.right)
+            if(depth == len(ans)):
+                ans.append(node.val)
 
-        return result
+            dfs(node.right, depth + 1)
+            dfs(node.left, depth + 1)
+
+
+        dfs(root,0)
+
+        return ans
