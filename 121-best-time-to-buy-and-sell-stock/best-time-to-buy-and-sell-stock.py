@@ -10,6 +10,7 @@ class Solution(object):
         for p in prices:
             if p < min_price:
                 min_price = p
-            best = max(best, p - min_price)
+            elif p - min_price > best:
+                best = p - min_price
         
         return best
